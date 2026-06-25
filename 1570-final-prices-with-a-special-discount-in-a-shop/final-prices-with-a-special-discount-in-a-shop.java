@@ -17,19 +17,16 @@ class Solution {
 
           if(st.isEmpty())
           {
-            st.push(x);
+        
              arr[i]=prices[i];
           }
           else
           {
-            if(prices[i]<st.peek())
-            {
-                   arr[i]=prices[i];
-            }
-            else
-            {
+            
+            
+    
                 arr[i]=prices[i]-st.peek();
-            }
+            
           }
 
 
