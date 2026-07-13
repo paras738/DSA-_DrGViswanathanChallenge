@@ -13,19 +13,27 @@ class Solution {
             
            
         }
-          if(max%min==0)
-            {
-                return min;
-            }
+         
+       
+
+           
+   return gcd(min,max); }
+
+   public int gcd( int min,int max)
+       {
+        while(min!=0)
+        {
+        int x=max%min;
+        max=min;
+        min=x;
+
+       
+
+       }
+        return max;
+       }
 
 
 
-            for(int i=max;i>0;i--)
-            {
-                if(min%i==0&&max%i==0)
-                {
-                    return i;
-                }
-            }
-   return 1; }
+
 }
