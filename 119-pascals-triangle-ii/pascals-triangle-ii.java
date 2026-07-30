@@ -1,25 +1,20 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<List<Integer>>list= new ArrayList<>();
-       
-       
-        for(int j=0;j<=rowIndex;j++)
-        {
-            List<Integer> row=new ArrayList<>();
-            row.add(1);
-            for(int i=1;i<j;i++)
-           {
-            List<Integer> prev = list.get(j - 1);
-            int val=prev.get(i)+prev.get(i-1);
-            row.add(val);
-            }
-        
 
-                if(j>0)
-             {
-                  row.add(1);
-                }
-                list.add(row);
+        List<Integer> row = new ArrayList<>();
+
+        long value = 1; // C(rowIndex, 0)
+
+        for (int i = 0; i <= rowIndex; i++) {
+
+            // Add current value
+            row.add((int) value);
+
+            // Calculate next value using:
+            // C(n, k+1) = C(n, k) * (n-k) / (k+1)
+            value = value * (rowIndex - i) / (i + 1);
         }
-      return list.get(rowIndex); }
+
+        return row;
+    }
 }
