@@ -8,7 +8,7 @@ class Solution {
         for (int i = 0; i <= rowIndex; i++) {
 
             // Add current value
-            row.add((int) value);
+            row.add( (int)value);
 
             // Calculate next value using:
             // C(n, k+1) = C(n, k) * (n-k) / (k+1)
