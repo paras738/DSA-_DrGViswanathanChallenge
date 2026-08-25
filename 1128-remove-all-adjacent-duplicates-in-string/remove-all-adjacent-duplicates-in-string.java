@@ -25,10 +25,12 @@ class Solution {
         
          StringBuilder ans = new StringBuilder();
 
-        for (char c : st) {
-            ans.append(c);
+        while(!st.isEmpty())
+        {
+            ans.append(st.pop());
         }
-
+        
+        ans.reverse();
         return ans.toString();
         }
           
