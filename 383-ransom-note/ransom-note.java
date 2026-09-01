@@ -1,32 +1,25 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-       int count=0;
-         
 
-        List<Character>li= new ArrayList<>();
+        int[] count = new int[26];
 
-
-       for(int i=0;i<ransomNote.length();i++)
-       { 
-        li.add(ransomNote.charAt(i));
-
-
-        
-       }
-
-       for(int i=0;i<magazine.length();i++)
-       { 
-          if(li.contains(magazine.charAt(i)));
-          {
-            li.remove(Character.valueOf(magazine.charAt(i)));
-          }
-
-        if (li.isEmpty())
-        {
-            return true;
+        // Count characters in magazine
+        for (int i = 0; i < magazine.length(); i++) {
+            count[magazine.charAt(i) - 'a']++;
         }
-        
-       }
 
-   return false; } 
+        // Use characters for ransomNote
+        for (int i = 0; i < ransomNote.length(); i++) {
+
+            char ch = ransomNote.charAt(i);
+
+            count[ch - 'a']--;
+
+            if (count[ch - 'a'] < 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
