@@ -9,28 +9,21 @@ class Solution {
    { 
     
 
-    if(map.containsValue(target-nums[i]))
+    if(map.containsKey(target-nums[i]))
     {
+        arr[0]=map.get(target-nums[i]);
+        arr[1]=i;
+
+        return arr;
         
-
-        for(Map.Entry<Integer,Integer>entry:map.entrySet())
-        {
-            if(entry.getValue()==(target-nums[i]))
-            {
-                arr[0]=entry.getKey();
-                  arr[1]=i;
-
-                  return arr;
-
-            }
             
-        }
-        
-        
     }
+        
+        
+    
     else
     {
-           map.put(i,nums[i]);
+           map.put(nums[i],i);
     }
     
 
